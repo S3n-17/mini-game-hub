@@ -8,7 +8,7 @@ const Game = ({link,name, component:Component}) => {
     <>
     <div className="pic">
       <img src={link}></img>
-      <button><Link to={`/${name}`}>Play</Link></button>
+      <button id="play-button"><Link to={`/${name}`}>Play</Link></button>
     </div>
     </>
   )

@@ -5,8 +5,8 @@ span{
     background-color: antiquewhite;
     color: black;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    width: 200px;
-    height:300px;
+    width: 150px;
+    height:200px;
     border-radius: 15px;
     font-size: 30px;
 }
@@ -17,4 +17,5 @@ span{
     justify-content: center;
     gap : 20px;
 }
+
 

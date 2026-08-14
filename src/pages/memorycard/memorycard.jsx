@@ -1,7 +1,11 @@
 import React from 'react'
 import "./cards.css"
+import Input from './input'
 import Cards from './cards'
 import { useEffect, useState } from 'react'
+import Enter from './enter'
+import "./memorycard.css"
+
 const Memorycard = () => {
   const [allWords, setAllWords] = useState([])
   const [words, setWords] = useState([])
@@ -16,9 +20,9 @@ const Memorycard = () => {
   }, [])
   useEffect(() => {
     if (allWords.length > 0) {
-    var l = [allWords[randint(0, allWords.length - 1)], allWords[randint(0, allWords.length - 1)], allWords[randint(0, allWords.length - 1)]]
-    setWords(l)
-    window.localStorage.setItem("words", JSON.stringify(l))
+      var l = [allWords[randint(0, allWords.length - 1)], allWords[randint(0, allWords.length - 1)], allWords[randint(0, allWords.length - 1)]]
+      setWords(l)
+      window.localStorage.setItem("words", JSON.stringify(l))
     
   }
   }, [allWords])
@@ -27,12 +31,23 @@ const Memorycard = () => {
   }
   if(words.length>0){
     return (
+    <>
     <div id="mc">
       <Cards text={words[0]} />
       <Cards text={words[1]} />
       <Cards text={words[2]} />
     </div>
-  )
+    <br />
+    <div id="inp" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+      <Input text="Enter word 1" />
+      <Input text="Enter word 2" />
+      <Input text="Enter word 3" />
+      <br />
+      <Enter />
+    </div>
+    
+    </>
+    )
   }
   if(allWords.length==0){
     return <div id="loading" style={{ textAlign: 'center', color: 'black', fontWeight: 'bold' }}>Loading...</div>
