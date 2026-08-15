@@ -1,20 +1,18 @@
 import React from 'react'
 import "./input.css"
 
-const Input = ({ text }) => {
+const Input = ({ text , id}) => {
   const [value, setValue] = React.useState("")
   const [inpwords, setInpwords] = React.useState([])
   
-  localStorage.setItem("inpwords", JSON.stringify(inpwords))
-  
   return (
     <div>
-      <input type="text" placeholder={text} id="word-input" onChange={
+      <input type="text" placeholder={text} id={id} className="word-input" onChange={
         (e) => {
           console.log(e.target.value)
           setValue(e.target.value)
           console.log(value)
-          setInpwords([...inpwords, e.target.value])
+          localStorage.setItem(id, e.target.value)
         }
       } />
     </div>
