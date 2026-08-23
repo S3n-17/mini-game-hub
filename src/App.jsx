@@ -11,6 +11,7 @@ import rps from "./assets/rps.jpg";
 import hc from "./assets/hc.png";
 import { Route, Routes } from 'react-router-dom'
 import Memorycard from './pages/memorycard/memorycard'
+import Tictactoe from './pages/tictactoe/tictactoe'
 
 function Home() {
     
@@ -19,7 +20,7 @@ function Home() {
         <>
             <Navbar />
             <div id="games">
-                <Game link={tictactoe} />
+                <Game link={tictactoe} name='tictactoe' component={Tictactoe} />
                 <Game link={memorygame} name='memorycard' component={Memorycard} />
                 <Game link={rps} />
                 <Game link={hc} />
@@ -31,6 +32,7 @@ function App() {
     return (
         <Routes>
             <Route path='/memorycard' element={<Memorycard />} />
+            <Route path='/tictactoe' element={<Tictactoe />} />
             <Route path='/' element={<Home />} />
         </Routes>
     )
