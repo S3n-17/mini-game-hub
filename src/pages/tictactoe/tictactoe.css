@@ -1,6 +1,72 @@
-.row{
+
+.row {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.row {
+    animation: boardAppear 0.6s ease;
+}
+
+@keyframes boardAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.tictactoe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: #241334;
+    border: 1px solid #68438a;
+    border-radius: 22px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* Game heading */
+.tictactoe h1 {
+    color: #e9d5ff;
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+/* Reset button */
+.tictactoe button {
+    margin-top: 25px;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 10px;
+
+    background: #9333ea;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.tictactoe button:hover {
+    background: #c084fc;
+    color: #241334;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(192, 132, 252, 0.3);
+}
+
+.tictactoe button:active {
+    transform: scale(0.95);
 }

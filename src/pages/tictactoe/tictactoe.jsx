@@ -48,7 +48,9 @@ const Tictactoe = () => {
     const l = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]];
     const [subList, setSubList] = React.useState([]);
 
-
+    function randomBox() {
+        return Math.floor(Math.random() * 9) + 1;
+    }
     function checkWinner() {
         l.forEach(([a, b, c]) => {
 
@@ -90,7 +92,7 @@ const Tictactoe = () => {
                 setDisabled9(true)
             }
 
-            
+
 
 
 
@@ -101,17 +103,71 @@ const Tictactoe = () => {
     React.useEffect(() => {
         checkWinner();
     }, [xlist, olist]);
-    function entry(num) {
-        if (player === 'X') {
-            setXList([...xlist, num]);
-        } else {
-            setOList([...olist, num]);
+    React.useEffect(() => {
+        if (player === 'O' && winner === '') {
+            playGame();
         }
+    }, [player]);
+    function entry(num) {
+        setXList([...xlist, num]);
     }
+
+    const playGame = () => {
+        // Stop if the board is full
+        if (xlist.length + olist.length >= 9) return;
+
+        let num = randomBox();
+
+        // Generate another number if the box is occupied
+        while (xlist.includes(num) || olist.includes(num)) {
+            num = randomBox();
+        }
+
+        if (num === 1) {
+            setInText1('O');
+            setDisabled1(true);
+        }
+        else if (num === 2) {
+            setInText2('O');
+            setDisabled2(true);
+        }
+        else if (num === 3) {
+            setInText3('O');
+            setDisabled3(true);
+        }
+        else if (num === 4) {
+            setInText4('O');
+            setDisabled4(true);
+        }
+        else if (num === 5) {
+            setInText5('O');
+            setDisabled5(true);
+        }
+        else if (num === 6) {
+            setInText6('O');
+            setDisabled6(true);
+        }
+        else if (num === 7) {
+            setInText7('O');
+            setDisabled7(true);
+        }
+        else if (num === 8) {
+            setInText8('O');
+            setDisabled8(true);
+        }
+        else if (num === 9) {
+            setInText9('O');
+            setDisabled9(true);
+        }
+
+        setOList([...olist, num]);
+        setPlayer('X');
+    };
+
     return (
         <div>
             <div id="turn">
-                <h3 style={{ color: 'black' }}>Current Turn: {player}</h3>
+                <h3 style={{ color: 'white' }}>Current Turn: {player}</h3>
             </div>
             <div id='tictactoe'>
                 <div className='row' id='row1'>

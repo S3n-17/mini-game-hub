@@ -51,7 +51,7 @@ const Memorycard = () => {
     )
   }
   if (allWords.length == 0) {
-    return <div id="loading" style={{ textAlign: 'center', color: 'black', fontWeight: 'bold' }}>Loading...</div>
+    return <div id="loading" style={{ textAlign: 'center', color: 'white', fontWeight: 'bold' }}>Loading...</div>
   }
 
 }
